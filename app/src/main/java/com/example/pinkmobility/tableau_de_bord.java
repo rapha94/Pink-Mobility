@@ -30,6 +30,7 @@ public class tableau_de_bord extends AppCompatActivity {
     int speed = 33;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,7 @@ public class tableau_de_bord extends AppCompatActivity {
         raz();
         quitter();
         decompte_temps();
+
 
     }
 
@@ -141,6 +143,7 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+
                                             }
                                         })
                                         .setNegativeButton("no", new DialogInterface.OnClickListener() {
@@ -175,7 +178,26 @@ public class tableau_de_bord extends AppCompatActivity {
         off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.exit(0);
+
+
+                AlertDialog.Builder c_builder = new AlertDialog.Builder(tableau_de_bord.this);
+                c_builder.setMessage("Quit Trip ? ")
+                        .setCancelable(false)
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.exit(0);
+                            }
+                        })
+                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = c_builder.create();
+                alert.setTitle("Quit");
+                alert.show();
                 }
         });
     }

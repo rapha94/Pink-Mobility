@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5acd05f5b44c6c2d561159066c96e4741e3c2101">
+        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_7629c5f6fe0b7256b3a243534b972a01471ab692/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_504455f8c420f6434ea97ed1910c1682265f5bdd/classes.dex" />
+    </item>
+
+</items>
