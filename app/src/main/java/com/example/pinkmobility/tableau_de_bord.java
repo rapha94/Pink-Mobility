@@ -1,10 +1,14 @@
 package com.example.pinkmobility;
 
+import android.content.DialogInterface;
+import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,8 +20,14 @@ public class tableau_de_bord extends AppCompatActivity {
     public static TextView vitesseDigitale;
     public static ImageButton raz;
     public static ImageButton off;
+    public static TextView temps;
 
-    int speed = 10;
+    public int counter;
+
+    private long tps_total = 7000000;
+    private CountDownTimer countDownTimer;
+
+    int speed = 33;
 
 
     @Override
@@ -29,8 +39,41 @@ public class tableau_de_bord extends AppCompatActivity {
         setVitesseDigitale();
         raz();
         quitter();
+        decompte_temps();
 
     }
+
+    public void onPause(){
+        tableau_de_bord.super.onPause();
+
+    }
+
+
+    private void decompte_temps() {
+        temps = (TextView) findViewById(R.id.Temps);
+
+        countDownTimer = new CountDownTimer(tps_total, 1000) {  //mettre en argument le temps d'autonomie de la batterie (variable que l'on recoit)
+            public void onTick(long millisUntilFinished) {
+                counter++;
+                if (counter<60){
+                temps.setText(String.valueOf(counter) + " s");}
+                else if (counter>60 && counter<3600){
+                    temps.setText(String.valueOf(counter/60) + " min " + String.valueOf(counter%60) + " s" );
+                }
+                else {
+                    temps.setText(String.valueOf(counter/3600) + " h " + String.valueOf(counter%3600) + " min" + String.valueOf((counter%3600)%60) + " s" );
+                }
+
+
+
+            }
+            public  void onFinish(){
+                temps.setText("tps over");
+            }
+        }.start();
+    }
+
+
 
     /*
     private void setProgressValue(int speed) {
@@ -51,16 +94,22 @@ public class tableau_de_bord extends AppCompatActivity {
     }*/
 
 
+
     private void setVitesseBar(){
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
-        if (speed<100);
+        if (speed<100)
+        {
         progressBar.setMax(100);
         progressBar.setProgress(speed);
+        }
+        else
+        {
+            finish();}
 
-        if (speed>100)
-            finish();
+
+
     }
 
 
@@ -75,7 +124,47 @@ public class tableau_de_bord extends AppCompatActivity {
         raz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteDatabase(String.valueOf(speed));
+
+                onPause();
+
+                AlertDialog.Builder a_builder = new AlertDialog.Builder(tableau_de_bord.this);
+                a_builder.setMessage("do you want to start a new ride ")
+                        .setCancelable(false)
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                AlertDialog.Builder b_builder = new AlertDialog.Builder(tableau_de_bord.this);
+                                b_builder.setMessage("do you want to save your trip ")
+                                        .setCancelable(false)
+                                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                counter = 0;
+                                            }
+                                        })
+                                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                counter = 0;
+                                            }
+                                        });
+                                AlertDialog alert = b_builder.create();
+                                alert.setTitle("Save trip ?");
+                                alert.show();
+
+                            }
+                        })
+                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = a_builder.create();
+                alert.setTitle("New Ride");
+                alert.show();
+
             }
         });
     }
@@ -86,7 +175,7 @@ public class tableau_de_bord extends AppCompatActivity {
         off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                System.exit(0);
                 }
         });
     }

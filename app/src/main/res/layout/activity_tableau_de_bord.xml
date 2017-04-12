@@ -10,6 +10,21 @@
 
 
     <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_100"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintLeft_toRightOf="@+id/V0"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints,RtlHardcoded"
+        tools:layout_editor_absoluteY="68dp" />
+
+    <TextView
         android:id="@+id/V100"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +52,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
         android:id="@+id/vitesseDigitale"
@@ -95,5 +111,20 @@
         app:srcCompat="@android:drawable/ic_lock_power_off"
         android:contentDescription=""
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/Temps"
+        android:layout_width="264dp"
+        android:layout_height="45dp"
+        android:text="@string/temps"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vitesseDigitale"
+        app:layout_constraintVertical_bias="0.52" />
 
 </android.support.constraint.ConstraintLayout>
