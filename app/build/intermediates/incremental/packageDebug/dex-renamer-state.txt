@@ -1,4 +1,4 @@
-#Wed Apr 12 18:30:16 CEST 2017
+#Mon Apr 17 15:16:25 CEST 2017
 base.0=/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_504455f8c420f6434ea97ed1910c1682265f5bdd
 renamed.1=classes2.dex
 renamed.0=classes.dex

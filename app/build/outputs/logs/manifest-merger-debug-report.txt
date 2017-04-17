@@ -30,11 +30,11 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/raph
 	android:supportsRtl
 		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:10:9-35
 	android:roundIcon
-		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:9:9-46
+		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:9:9-54
 	android:allowBackup
 		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:6:9-35
 	android:icon
-		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:7:9-38
 	android:theme
 		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:11:9-40
 activity#com.example.pinkmobility.MainActivity

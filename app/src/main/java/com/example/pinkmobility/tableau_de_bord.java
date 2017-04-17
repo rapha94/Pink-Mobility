@@ -16,11 +16,11 @@ import android.widget.TextView;
 
 public class tableau_de_bord extends AppCompatActivity {
 
-    public static ProgressBar progressBar;
-    public static TextView vitesseDigitale;
-    public static ImageButton raz;
-    public static ImageButton off;
-    public static TextView temps;
+    private  ProgressBar progressBar;
+    private  TextView vitesseDigitale;
+    private  ImageButton raz;
+    private  ImageButton off;
+    private  TextView temps;
 
     public int counter;
 
@@ -63,7 +63,8 @@ public class tableau_de_bord extends AppCompatActivity {
                     temps.setText(String.valueOf(counter/60) + " min " + String.valueOf(counter%60) + " s" );
                 }
                 else {
-                    temps.setText(String.valueOf(counter/3600) + " h " + String.valueOf(counter%3600) + " min" + String.valueOf((counter%3600)%60) + " s" );
+                    temps.setText(String.valueOf(counter/3600) + " h " + String.valueOf(counter%3600) + " min" +
+                            String.valueOf((counter%3600)%60) + " s" );
                 }
 
 
@@ -187,6 +188,7 @@ public class tableau_de_bord extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 System.exit(0);
+                                //onDestroy();
                             }
                         })
                         .setNegativeButton("no", new DialogInterface.OnClickListener() {

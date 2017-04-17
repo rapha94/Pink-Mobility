@@ -8,6 +8,10 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/icone_app.png"
     },
     {
+        "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/arnaud.png",
+        "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/arnaud.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     }
