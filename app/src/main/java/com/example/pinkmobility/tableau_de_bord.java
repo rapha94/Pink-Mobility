@@ -12,6 +12,7 @@ import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class tableau_de_bord extends AppCompatActivity {
@@ -22,12 +23,16 @@ public class tableau_de_bord extends AppCompatActivity {
     private  ImageButton off;
     private  TextView temps;
 
+    public static DataBase myDB;
+
     public int counter;
 
     private long tps_total = 7000000;
     private CountDownTimer countDownTimer;
 
     int speed = 33;
+    String i;
+    String j;
 
 
 
@@ -144,6 +149,26 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+                                                myDB = new DataBase(getBaseContext());
+
+
+                                                //pour le moment on a des int qu'on transforme donc en string pour les ajouter a la database
+                                                i = String.valueOf(speed);
+                                                j = String.valueOf(counter);
+
+                                                // modifier le isInserted en fonction des variables que l'on recoit
+                                                boolean isInserted = myDB.insertData(j.getClass().toString(),
+                                                        i.getClass().toString());
+                                                if (isInserted = true){
+                                                    Toast.makeText(tableau_de_bord.this, "data Inserted", Toast.LENGTH_LONG).show();
+                                                }
+                                                else {
+                                                    Toast.makeText(tableau_de_bord.this, "data not Inserted", Toast.LENGTH_LONG).show();
+
+                                                }
+
+                                                Toast.makeText(tableau_de_bord.this, "New trip", Toast.LENGTH_LONG).show();
+
 
                                             }
                                         })
@@ -151,6 +176,8 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+                                                Toast.makeText(tableau_de_bord.this, "New trip", Toast.LENGTH_LONG).show();
+
                                             }
                                         });
                                 AlertDialog alert = b_builder.create();
@@ -204,5 +231,8 @@ public class tableau_de_bord extends AppCompatActivity {
         });
     }
 }
+
+
+
 
 
