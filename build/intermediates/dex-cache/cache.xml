@@ -79,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b1d32a6c27d7e4fed6691a67071688b3acb82ade">
+        sha1="0aad0da442e7be2e8edffd779041bd27465eba84">
         <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_7629c5f6fe0b7256b3a243534b972a01471ab692/classes.dex" />
     </item>
     <item

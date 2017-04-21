@@ -6,26 +6,29 @@
     density="xhdpi"
     format="10"
     plugin-version="2.3.0"
-    timestamp="1492623466932"
+    timestamp="1492756275122"
     token="-6023638793291084639"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="179" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="26" />
+        duration="152" />
     <task
         name="verifier"
-        duration="5" />
+        duration="13" />
 
     <artifact
         location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
+    <artifact
+        location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/outputs/apk/app-debug.apk"
+        type="SPLIT_MAIN" />
     <artifact
         location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
         type="SPLIT" />
@@ -56,17 +59,17 @@
     <artifact
         location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
         type="SPLIT" />
-    <artifact
-        location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/outputs/apk/app-debug.apk"
-        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1492623466932"
+        timestamp="1492756275122"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
+        <artifact
+            location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/outputs/apk/app-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
@@ -97,9 +100,6 @@
         <artifact
             location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
             type="SPLIT" />
-        <artifact
-            location="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/outputs/apk/app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

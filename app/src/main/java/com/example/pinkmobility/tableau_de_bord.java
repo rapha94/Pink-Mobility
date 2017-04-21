@@ -1,6 +1,8 @@
 package com.example.pinkmobility;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 public class tableau_de_bord extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_ENABLE_BLUETOOTH = 0;
     private  ProgressBar progressBar;
     private  TextView vitesseDigitale;
     private  ImageButton raz;
@@ -38,6 +41,9 @@ public class tableau_de_bord extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tableau_de_bord);
         setVitesseBar();
@@ -46,7 +52,6 @@ public class tableau_de_bord extends AppCompatActivity {
         raz();
         quitter();
         decompte_temps();
-
 
     }
 
