@@ -100,6 +100,10 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/layout/activity_tableau_de_bord.xml"
     },
     {
+        "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout/device_adapter_view.xml",
+        "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/layout/device_adapter_view.xml"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/res/layout/abc_screen_content_include.xml"
     },
