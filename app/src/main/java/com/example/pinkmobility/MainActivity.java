@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -21,16 +22,21 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     public static Button b_entrer;
+    public static Button b_jumeler;
     BluetoothAdapter m_bluetoothAdapter;
     private static String TAG = "MainActivity";
 
     //de type BluetoothDevice pour lister les device B découvertes pour la premiere fois
     public ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
+
     public DeviceListAdapter mDeviceListAdapter;
     ListView LVNewDevice;
+
+    public Set<BluetoothDevice> devicesDejaJumele ;
+
 
     // Create a BroadcastReceiver for ACTION_FOUND.
     private final BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
@@ -43,14 +49,15 @@ public class MainActivity extends AppCompatActivity {
                     case BluetoothAdapter.STATE_OFF:
                         Log.d(TAG, "off");
                         boutonDesactive();
+                        boutJumelerDesactive();
                         break;
                     case BluetoothAdapter.STATE_ON:
                         Log.d(TAG, "on");
-                        go_tableauDB();
-                        discoverableBluetooth();
+                        jumeler();
                         break;
                     case BluetoothAdapter.STATE_TURNING_OFF:
                         Log.d(TAG, "mBroadcastReceiver1 state turning off");
+                        boutJumelerDesactive();
                         break;
                     case BluetoothAdapter.STATE_TURNING_ON:
                         Log.d(TAG, "mBroadcastReceiver1 state turning on");
@@ -60,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
     };
 
     // Create a BroadcastReceiver for Scan.
@@ -72,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (mode){
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE:
                         Log.d(TAG, "discoverable");
-                        bluetoothDiscover();
                         break;
                     case BluetoothAdapter.SCAN_MODE_CONNECTABLE:
                         Log.d(TAG, "able to receive connection");
@@ -110,6 +117,38 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    /**
+     * Broadcast Receiver that detects bond state changes (Pairing status changes)
+     *
+     * bound = lié
+     */
+    private final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+
+            if(action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)){
+                BluetoothDevice mDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                //3 cases:
+                //case1: bonded already
+                if (mDevice.getBondState() == BluetoothDevice.BOND_BONDED){
+                    Log.d(TAG, "BroadcastReceiver: BOND_BONDED.");
+                    go_tableauDB();
+                }
+                //case2: creating a bone
+                if (mDevice.getBondState() == BluetoothDevice.BOND_BONDING) {
+                    Log.d(TAG, "BroadcastReceiver: BOND_BONDING.");
+                }
+                //case3: breaking a bond
+                if (mDevice.getBondState() == BluetoothDevice.BOND_NONE) {
+                    Log.d(TAG, "BroadcastReceiver: BOND_NONE.");
+                }
+            }
+        }
+    };
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,23 +156,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
         b_entrer = (Button) findViewById(R.id.Start);
+        boutonDesactive();
+        b_jumeler = (Button) findViewById(R.id.b_jumeler);
+
 
         m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         LVNewDevice = (ListView) findViewById(R.id.listNewDevice) ;
         mBTDevices = new ArrayList<>();
 
-
         if (!m_bluetoothAdapter.isEnabled()) {
-            boutonDesactive();
+            boutJumelerDesactive();
             enableDisableBT();
-
-
         }
         if( m_bluetoothAdapter.isEnabled()){
-            go_tableauDB();
-            discoverableBluetooth();
+            jumeler();
         }
+
+        //Broadcasts when bond state changes (ie:pairing)
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        registerReceiver(mBroadcastReceiver4, filter);
+
+        m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        LVNewDevice.setOnItemClickListener(MainActivity.this);
+
 
     }
 
@@ -143,6 +191,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(mBroadcastReceiver1);
         unregisterReceiver(mBroadcastReceiver2);
+        unregisterReceiver(mBroadcastReceiver3);
+        unregisterReceiver(mBroadcastReceiver4);
         //mBluetoothAdapter.cancelDiscovery();
     }
 
@@ -173,6 +223,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
+    public void jumeler(){
+        b_jumeler.setBackgroundColor(Color.rgb(63,81,181));
+        b_jumeler.setEnabled(true);
+        b_jumeler.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        discoverableBluetooth();
+
+                    }
+                }
+        );
+
+    }
+
+
+    public void boutJumelerDesactive(){
+
+        b_jumeler.setBackgroundColor(808080);
+        b_jumeler.setEnabled(false);
+
+    }
+
+
     public void  enableDisableBT(){
         if (m_bluetoothAdapter.isEnabled())
         {
@@ -191,8 +267,6 @@ public class MainActivity extends AppCompatActivity {
             IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
             registerReceiver(mBroadcastReceiver1, BTIntent);
 
-            //discoverableBluetooth();
-
 
         }
 
@@ -209,6 +283,7 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter BTIntent = new IntentFilter(m_bluetoothAdapter.ACTION_SCAN_MODE_CHANGED);
         registerReceiver(mBroadcastReceiver2, BTIntent);
 
+        bluetoothDiscover();
     }
 
 
@@ -240,17 +315,7 @@ public class MainActivity extends AppCompatActivity {
                             registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
                         }
 
-
                     }
-
-
-
-
-
-
-
-
-
 
     /**
      * This method is required for all devices running API23+
@@ -276,70 +341,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        //first cancel discovery because its very memory intensive.
+        m_bluetoothAdapter.cancelDiscovery();
 
+        boolean deviceExist = true ;
 
+        Log.d(TAG, "onItemClick: You Clicked on a device.");
+        String deviceName = mBTDevices.get(i).getName();
+        String deviceAddress = mBTDevices.get(i).getAddress();
 
-}
+        Log.d(TAG, "onItemClick: deviceName = " + deviceName);
+        Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
 
+        devicesDejaJumele = m_bluetoothAdapter.getBondedDevices();
 
+        ArrayList<BluetoothDevice> listDevicesDejaJumele = new ArrayList<>(devicesDejaJumele);
 
+        for (BluetoothDevice blueDevice : listDevicesDejaJumele) {
 
+            Log.d(TAG, "on est dans le for.");
 
-   /* public void testBluetooth() {
+            if (blueDevice.getName().equals(deviceName)) {
 
-        if (!bluetoothAdapter.isEnabled()) {
+                Log.d(TAG, "on est dans le if.");
+                listDevicesDejaJumele.get(i).createBond();
+                deviceExist = false ;
 
-            Intent enableBlueTooth = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBlueTooth, REQUEST_CODE_ENABLE_BLUETOOTH);
+            }
 
         }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != REQUEST_CODE_ENABLE_BLUETOOTH)
-            finish();
-
-        if (resultCode == RESULT_OK)
-            {
-                deviceConnection();
+            if(deviceExist) {
+                //create the bond.
+                //NOTE: Requires API 17+? I think this is JellyBean
+                //if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
+                Log.d(TAG, "Trying to pair with " + deviceName);
+                mBTDevices.get(i).createBond();
+                //}
             }
 
-
-        else
-            {
-                b_entrer.setEnabled(false);
-                b_entrer.setBackgroundColor(808080);;
-            }
     }
-
-
-
-public void deviceConnection() {
-
-    // devise visible
-    Intent discoverableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-    discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-    startActivity(discoverableIntent);
-
-
-   // liste des device déjà connues
-    devices = bluetoothAdapter.getBondedDevices();
-    for (BluetoothDevice blueDevice : devices)
-    {
-        Toast.makeText(MainActivity.this, "Device = " + blueDevice.getName(), Toast.LENGTH_SHORT).show();
-    }
-
-
-    IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-    registerReceiver(bluetoothReceiver, filter);
-
-    bluetoothAdapter.startDiscovery();
-
-
-}*/
-
-
+}
 
 
