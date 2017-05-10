@@ -111,6 +111,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitesseDigitale"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.259" />
+
+    <ImageButton
+        android:id="@+id/viewTrips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/off"
+        app:layout_constraintRight_toLeftOf="@+id/raz"
+        app:layout_constraintTop_toBottomOf="@+id/Temps"
+        app:layout_constraintVertical_bias="0.877"
+        app:srcCompat="@android:drawable/ic_menu_view" />
 
 </android.support.constraint.ConstraintLayout>

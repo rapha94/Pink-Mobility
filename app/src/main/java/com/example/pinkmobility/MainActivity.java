@@ -3,6 +3,8 @@ package com.example.pinkmobility;
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothServerSocket;
+import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,8 +21,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -31,11 +36,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     //de type BluetoothDevice pour lister les device B découvertes pour la premiere fois
     public ArrayList<BluetoothDevice> mBTDevices = new ArrayList<>();
+    public Set<BluetoothDevice> devicesDejaJumele ;
 
     public DeviceListAdapter mDeviceListAdapter;
     ListView LVNewDevice;
 
-    public Set<BluetoothDevice> devicesDejaJumele ;
+    BluetoothDevice mDevice;
+    BluetoothDevice mBTDevice;
+
+
+    BluetoothConnectionService mBluetoothConnection;
+
+    private static final UUID MY_UUID_INSECURE =
+            UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
+
 
 
     // Create a BroadcastReceiver for ACTION_FOUND.
@@ -122,18 +136,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      *
      * bound = lié
      */
+
+
+
     private final BroadcastReceiver mBroadcastReceiver4 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
 
             if(action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)){
-                BluetoothDevice mDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                    mDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 //3 cases:
                 //case1: bonded already
                 if (mDevice.getBondState() == BluetoothDevice.BOND_BONDED){
                     Log.d(TAG, "BroadcastReceiver: BOND_BONDED.");
                     go_tableauDB();
+                    mBTDevice = mDevice;
                 }
                 //case2: creating a bone
                 if (mDevice.getBondState() == BluetoothDevice.BOND_BONDING) {
@@ -146,8 +164,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         }
     };
-
-
 
 
     @Override
@@ -166,6 +182,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         LVNewDevice = (ListView) findViewById(R.id.listNewDevice) ;
         mBTDevices = new ArrayList<>();
 
+        //Broadcasts when bond state changes (ie:pairing)
+        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
+        registerReceiver(mBroadcastReceiver4, filter);
+
+
         if (!m_bluetoothAdapter.isEnabled()) {
             boutJumelerDesactive();
             enableDisableBT();
@@ -174,14 +195,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             jumeler();
         }
 
-        //Broadcasts when bond state changes (ie:pairing)
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
-        registerReceiver(mBroadcastReceiver4, filter);
+
 
         m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         LVNewDevice.setOnItemClickListener(MainActivity.this);
 
+
+
+    }
+
+
+    public void startBTConnection(BluetoothDevice device, UUID uuid){
+
+        Log.d(TAG, "juste pour voir.");
+
+        mBluetoothConnection.startClient(device, uuid);
 
     }
 
@@ -222,24 +251,49 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-
-
-
     public void jumeler(){
-        b_jumeler.setBackgroundColor(Color.rgb(63,81,181));
-        b_jumeler.setEnabled(true);
-        b_jumeler.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        discoverableBluetooth();
+
+
+        /*if (mBroadcastReceiver4.equals(BluetoothDevice.BOND_BONDED)){
+            Log.d(TAG, "BroadcastReceiver: BOND_BONDED.");
+            Toast.makeText(MainActivity.this, "device connecte : " + deviceName , Toast.LENGTH_LONG).show();
+            boutJumelerDesactive();
+            go_tableauDB();
+        }
+
+        else {*/
+
+            Log.d(TAG, "je suis ici");
+
+            b_jumeler.setBackgroundColor(Color.rgb(63, 81, 181));
+            b_jumeler.setEnabled(true);
+
+
+            b_jumeler.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            discoverableBluetooth();
+
+                          /*  byte[] bytes = b_jumeler.getText().toString().getBytes(Charset.defaultCharset());
+                            mBluetoothConnection.write(bytes);
+
+                            startConnection();*/
+
+
+                        }
 
                     }
-                }
-        );
+            );
+        //}
 
     }
 
+    public void startConnection(){
+
+
+
+    }
 
     public void boutJumelerDesactive(){
 
@@ -247,7 +301,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         b_jumeler.setEnabled(false);
 
     }
-
 
     public void  enableDisableBT(){
         if (m_bluetoothAdapter.isEnabled())
@@ -267,9 +320,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
             registerReceiver(mBroadcastReceiver1, BTIntent);
 
-
         }
-
 
     }
 
@@ -290,32 +341,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void bluetoothDiscover() {
 
 
-                        Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
+        Log.d(TAG, "btnDiscover: Looking for unpaired devices.");
 
-                        if(m_bluetoothAdapter.isDiscovering()){
-                            m_bluetoothAdapter.cancelDiscovery();
-                            Log.d(TAG, "btnDiscover: Canceling discovery.");
+        if (m_bluetoothAdapter.isDiscovering()) {
+            m_bluetoothAdapter.cancelDiscovery();
+            Log.d(TAG, "btnDiscover: Canceling discovery.");
 
-                            //check BT permissions in manifest
-                            checkBTPermissions();
+            //check BT permissions in manifest
+            checkBTPermissions();
 
-                            m_bluetoothAdapter.startDiscovery();
-                            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-                            registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
-                        }
-                        if(!m_bluetoothAdapter.isDiscovering()){
+            m_bluetoothAdapter.startDiscovery();
+            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
+        }
+        if (!m_bluetoothAdapter.isDiscovering()) {
 
-                            Log.d(TAG, "btnDiscover: il se passe qqch ? .");
+            Log.d(TAG, "btnDiscover: il se passe qqch ? .");
 
-                            //check BT permissions in manifest
-                            checkBTPermissions();
+            //check BT permissions in manifest
+            checkBTPermissions();
 
-                            m_bluetoothAdapter.startDiscovery();
-                            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-                            registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
-                        }
+            m_bluetoothAdapter.startDiscovery();
+            IntentFilter discoverDevicesIntent = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+            registerReceiver(mBroadcastReceiver3, discoverDevicesIntent);
 
-                    }
+        }
+    }
 
     /**
      * This method is required for all devices running API23+
@@ -340,48 +391,143 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
+    String deviceName ;
+    String deviceAddress;
+
+
+
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         //first cancel discovery because its very memory intensive.
         m_bluetoothAdapter.cancelDiscovery();
 
-        boolean deviceExist = true ;
 
         Log.d(TAG, "onItemClick: You Clicked on a device.");
-        String deviceName = mBTDevices.get(i).getName();
-        String deviceAddress = mBTDevices.get(i).getAddress();
+        deviceName = mBTDevices.get(i).getName();
+        deviceAddress = mBTDevices.get(i).getAddress();
 
         Log.d(TAG, "onItemClick: deviceName = " + deviceName);
         Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
 
-        devicesDejaJumele = m_bluetoothAdapter.getBondedDevices();
 
-        ArrayList<BluetoothDevice> listDevicesDejaJumele = new ArrayList<>(devicesDejaJumele);
+         devicesDejaJumele = m_bluetoothAdapter.getBondedDevices();
 
-        for (BluetoothDevice blueDevice : listDevicesDejaJumele) {
 
-            Log.d(TAG, "on est dans le for.");
+                Log.d(TAG, "on est dans le else");
 
-            if (blueDevice.getName().equals(deviceName)) {
-
-                Log.d(TAG, "on est dans le if.");
-                listDevicesDejaJumele.get(i).createBond();
-                deviceExist = false ;
-
-            }
-
-        }
-            if(deviceExist) {
-                //create the bond.
-                //NOTE: Requires API 17+? I think this is JellyBean
-                //if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR2){
                 Log.d(TAG, "Trying to pair with " + deviceName);
                 mBTDevices.get(i).createBond();
-                //}
+
+        mBTDevice = mBTDevices.get(i);
+        mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+//COTE SERVEUR
+
+private class AcceptThread extends Thread {
+    private final BluetoothServerSocket mmServerSocket;
+
+    public AcceptThread() {
+        BluetoothServerSocket tmp = null;
+        try {
+            tmp = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(NAME, MY_UUID);
+        } catch (IOException e) { }
+        mmServerSocket = tmp;
+    }
+
+    public void run() {
+        BluetoothSocket socket = null;
+        while (true) {
+            try {
+                socket = mmServerSocket.accept();
+            } catch (IOException e) {
+                break;
             }
 
+            if (socket != null) {
+                manageConnectedSocket(socket);
+                mmServerSocket.close();
+                break;
+            }
+        }
+    }
+
+    public void cancel() {
+        try {
+            mmServerSocket.close();
+        } catch (IOException e) { }
     }
 }
 
 
+
+//COTE CLIENT
+
+private class ConnectThread extends Thread {
+    private final BluetoothSocket mmSocket;
+    private final BluetoothDevice mmDevice;
+
+    public ConnectThread(BluetoothDevice device) {
+        BluetoothSocket tmp = null;
+        mmDevice = device;
+        try {
+            tmp = device.createRfcommSocketToServiceRecord(MY_UUID);
+        } catch (IOException e) { }
+        mmSocket = tmp;
+    }
+
+    public void run() {
+        m_bluetoothAdapter.cancelDiscovery();
+        try {
+            mmSocket.connect();
+        } catch (IOException connectException) {
+            try {
+                mmSocket.close();
+            } catch (IOException closeException) { }
+            return;
+        }
+        manageConnectedSocket(mmSocket);
+    }
+
+    public void cancel() {
+        try {
+            mmSocket.close();
+        } catch (IOException e) { }
+    }
+
+}
+
+
+*/

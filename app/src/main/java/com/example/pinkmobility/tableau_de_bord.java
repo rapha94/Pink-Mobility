@@ -24,6 +24,7 @@ public class tableau_de_bord extends AppCompatActivity {
     private  TextView vitesseDigitale;
     private  ImageButton raz;
     private  ImageButton off;
+    private ImageButton b_viewTrips;
     private  TextView temps;
 
     public static DataBase myDB;
@@ -52,6 +53,7 @@ public class tableau_de_bord extends AppCompatActivity {
         raz();
         quitter();
         decompte_temps();
+        viewTrips();
 
     }
 
@@ -234,6 +236,42 @@ public class tableau_de_bord extends AppCompatActivity {
                 alert.show();
                 }
         });
+    }
+
+
+    private void viewTrips(){
+
+        b_viewTrips = (ImageButton) findViewById(R.id.viewTrips);
+
+        b_viewTrips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AlertDialog.Builder d_builder = new AlertDialog.Builder(tableau_de_bord.this);
+                d_builder.setMessage("View Trips (this action will quit the actual trip without saving) ")
+                        .setCancelable(false)
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent("com.example.pinkmobility.tripsVisualisation");
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = d_builder.create();
+                alert.setTitle("View Trips");
+                alert.show();
+            }
+        });
+
+
+
     }
 }
 

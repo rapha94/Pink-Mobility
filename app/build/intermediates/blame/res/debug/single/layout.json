@@ -92,6 +92,10 @@
         "source": "/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/res/layout/abc_list_menu_item_icon.xml"
     },
     {
+        "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout/activity_trips_visualisation.xml",
+        "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/layout/activity_trips_visualisation.xml"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/layout/activity_main.xml"
     },
