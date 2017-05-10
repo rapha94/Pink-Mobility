@@ -39,10 +39,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public Set<BluetoothDevice> devicesDejaJumele ;
 
     public DeviceListAdapter mDeviceListAdapter;
-    ListView LVNewDevice;
+    private ListView LVNewDevice;
 
-    BluetoothDevice mDevice;
-    BluetoothDevice mBTDevice;
+     BluetoothDevice mDevice;
+     BluetoothDevice mBTDevice;
+
+    String deviceName ;
+    String deviceAddress;
+
 
 
     BluetoothConnectionService mBluetoothConnection;
@@ -214,6 +218,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+
     @Override
     protected void onDestroy() {
         Log.d(TAG, "onDestroy: called.");
@@ -289,11 +294,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void startConnection(){
 
-
-
-    }
 
     public void boutJumelerDesactive(){
 
@@ -391,10 +392,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    String deviceName ;
-    String deviceAddress;
-
-
 
 
     @Override
@@ -411,32 +408,42 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d(TAG, "onItemClick: deviceAddress = " + deviceAddress);
 
 
-         devicesDejaJumele = m_bluetoothAdapter.getBondedDevices();
+        devicesDejaJumele = m_bluetoothAdapter.getBondedDevices();
+
+       if(devicesDejaJumele.size() > 0){
 
 
-                Log.d(TAG, "on est dans le else");
+            for ( BluetoothDevice device : devicesDejaJumele){
 
-                Log.d(TAG, "Trying to pair with " + deviceName);
-                mBTDevices.get(i).createBond();
+                String deviceNameJumele = device.getName();
+                String deviceAddressJumele = device.getAddress();
+
+
+                Log.d(TAG, "deviceName = " + deviceNameJumele);
+                Log.d(TAG, "deviceAddress = " + deviceAddressJumele);
+
+                if (deviceNameJumele.equals(deviceName) && deviceAddressJumele.equals(deviceAddress)){
+
+                    Log.d(TAG, " ca nous interesse" );
+                    startBTConnection(device,UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66"));
+
+                }
+
+
+            }
+        }
+
+
+        Log.d(TAG, "Trying to pair with " + deviceName);
+        mBTDevices.get(i).createBond();
 
         mBTDevice = mBTDevices.get(i);
         mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
-
-
 
     }
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
