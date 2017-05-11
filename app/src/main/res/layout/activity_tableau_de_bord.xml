@@ -53,8 +53,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.138"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.064"
+        tools:ignore="HardcodedText"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <TextView
         android:id="@+id/V0"
@@ -111,17 +112,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitesseDigitale"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.143" />
 
     <ImageButton
         android:id="@+id/viewTrips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/off"
-        app:layout_constraintRight_toLeftOf="@+id/raz"
-        app:layout_constraintTop_toBottomOf="@+id/Temps"
-        app:layout_constraintVertical_bias="0.877"
-        app:srcCompat="@android:drawable/ic_menu_view" />
+        app:srcCompat="@android:drawable/ic_menu_view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965" />
 
 </android.support.constraint.ConstraintLayout>

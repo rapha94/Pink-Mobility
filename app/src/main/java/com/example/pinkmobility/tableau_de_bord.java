@@ -27,6 +27,8 @@ public class tableau_de_bord extends AppCompatActivity {
     private ImageButton b_viewTrips;
     private  TextView temps;
 
+
+
     public static DataBase myDB;
 
     public int counter;
@@ -56,6 +58,7 @@ public class tableau_de_bord extends AppCompatActivity {
         viewTrips();
 
     }
+
 
     public void onPause(){
         tableau_de_bord.super.onPause();
