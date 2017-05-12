@@ -442,6 +442,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="app_name">Pink Mobility</string>
+    <string name="incomingmessages">incomingMessages</string>
     <string name="jumeler">JUMELER</string>
     <string name="search_menu_title">Search</string>
     <string name="start">Start</string>

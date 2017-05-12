@@ -53,7 +53,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.064"
+        app:layout_constraintVertical_bias="0.023"
         tools:ignore="HardcodedText"
         app:layout_constraintHorizontal_bias="0.502" />
 
@@ -112,7 +112,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitesseDigitale"
-        app:layout_constraintVertical_bias="0.143" />
+        app:layout_constraintVertical_bias="0.076" />
 
     <ImageButton
         android:id="@+id/viewTrips"
@@ -124,5 +124,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.965" />
+
+    <TextView
+        android:id="@+id/incomingMessages"
+        android:layout_width="314dp"
+        android:layout_height="165dp"
+        android:text="@string/incomingmessages"
+        app:layout_constraintBottom_toTopOf="@+id/off"
+        app:layout_constraintTop_toBottomOf="@+id/Temps"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintVertical_bias="0.152" />
 
 </android.support.constraint.ConstraintLayout>

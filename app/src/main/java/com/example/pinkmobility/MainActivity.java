@@ -49,9 +49,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String deviceName ;
     String deviceAddress;
 
-    TextView incomingMessages;
-    StringBuilder messages;
-
 
 
     BluetoothConnectionService mBluetoothConnection;
@@ -175,15 +172,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     };
 
 
-    BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String text = intent.getStringExtra("theMessage");
-            messages.append(text + "\n");
-
-            incomingMessages.setText(messages);
-        }
-    };
 
 
     @Override
@@ -222,11 +210,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         LVNewDevice.setOnItemClickListener(MainActivity.this);
 
 
-
-        incomingMessages = (TextView) findViewById(R.id.incomingMessages);
-        messages = new StringBuilder();
-        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
-
     }
 
 
@@ -247,7 +230,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         unregisterReceiver(mBroadcastReceiver2);
         unregisterReceiver(mBroadcastReceiver3);
         unregisterReceiver(mBroadcastReceiver4);
-        unregisterReceiver(mReceiver);
 
         //mBluetoothAdapter.cancelDiscovery();
     }

@@ -1,9 +1,13 @@
 package com.example.pinkmobility;
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.CountDownTimer;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +31,9 @@ public class tableau_de_bord extends AppCompatActivity {
     private ImageButton b_viewTrips;
     private  TextView temps;
 
+    TextView incomingMessages;
+    StringBuilder messages;
+
 
 
     public static DataBase myDB;
@@ -41,6 +48,15 @@ public class tableau_de_bord extends AppCompatActivity {
     String j;
 
 
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String text = intent.getStringExtra("theMessage");
+            messages.append(text + "\n");
+
+            incomingMessages.setText(messages);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +72,12 @@ public class tableau_de_bord extends AppCompatActivity {
         quitter();
         decompte_temps();
         viewTrips();
+
+
+        incomingMessages = (TextView) findViewById(R.id.incomingMessages);
+        messages = new StringBuilder();
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
+
 
     }
 

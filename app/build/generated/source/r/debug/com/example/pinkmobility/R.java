@@ -2285,9 +2285,9 @@ containing a value of this type.
     }
     public static final class id {
         public static final int Start=0x7f0b005e;
-        public static final int Temps=0x7f0b0068;
-        public static final int V0=0x7f0b0063;
-        public static final int V100=0x7f0b0062;
+        public static final int Temps=0x7f0b0067;
+        public static final int V0=0x7f0b0062;
+        public static final int V100=0x7f0b0061;
         public static final int action0=0x7f0b0070;
         public static final int action_bar=0x7f0b004f;
         public static final int action_bar_activity_content=0x7f0b0000;
@@ -2339,7 +2339,7 @@ containing a value of this type.
         public static final int icon_group=0x7f0b007e;
         public static final int ifRoom=0x7f0b0027;
         public static final int image=0x7f0b0031;
-        public static final int incomingMessages=0x7f0b0061;
+        public static final int incomingMessages=0x7f0b0069;
         public static final int info=0x7f0b007a;
         public static final int line1=0x7f0b007f;
         public static final int line3=0x7f0b0081;
@@ -2356,15 +2356,15 @@ containing a value of this type.
         public static final int notification_background=0x7f0b007c;
         public static final int notification_main_column=0x7f0b0076;
         public static final int notification_main_column_container=0x7f0b0075;
-        public static final int off=0x7f0b0067;
+        public static final int off=0x7f0b0066;
         public static final int packed=0x7f0b000c;
         public static final int parent=0x7f0b0009;
         public static final int parentPanel=0x7f0b0038;
-        public static final int progressBar=0x7f0b0065;
+        public static final int progressBar=0x7f0b0064;
         public static final int progress_circular=0x7f0b0005;
         public static final int progress_horizontal=0x7f0b0006;
         public static final int radio=0x7f0b0048;
-        public static final int raz=0x7f0b0064;
+        public static final int raz=0x7f0b0063;
         public static final int right_icon=0x7f0b007b;
         public static final int right_side=0x7f0b0077;
         public static final int screen=0x7f0b001d;
@@ -2411,8 +2411,8 @@ containing a value of this type.
         public static final int tvDeviceName=0x7f0b006b;
         public static final int up=0x7f0b0008;
         public static final int useLogo=0x7f0b001a;
-        public static final int viewTrips=0x7f0b0069;
-        public static final int vitesseDigitale=0x7f0b0066;
+        public static final int viewTrips=0x7f0b0068;
+        public static final int vitesseDigitale=0x7f0b0065;
         public static final int withText=0x7f0b0029;
         public static final int wrap=0x7f0b000b;
         public static final int wrap_content=0x7f0b0021;
@@ -2516,11 +2516,12 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f060011;
         public static final int abc_toolbar_collapse_description=0x7f060012;
         public static final int app_name=0x7f060023;
-        public static final int jumeler=0x7f060024;
+        public static final int incomingmessages=0x7f060024;
+        public static final int jumeler=0x7f060025;
         public static final int search_menu_title=0x7f060013;
-        public static final int start=0x7f060025;
+        public static final int start=0x7f060026;
         public static final int status_bar_notification_info_overflow=0x7f060014;
-        public static final int temps=0x7f060026;
+        public static final int temps=0x7f060027;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f08009f;
