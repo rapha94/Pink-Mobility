@@ -10,6 +10,8 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import java.io.IOException;
@@ -18,9 +20,6 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.UUID;
 
-/**
- * Created by User on 12/21/2016.
- */
 
 public class BluetoothConnectionService {
     private static final String TAG = "BluetoothConnectionServ";
@@ -197,7 +196,6 @@ public class BluetoothConnectionService {
     }
 
     /**
-
      AcceptThread starts and sits waiting for a connection.
      Then ConnectThread starts and attempts to make a connection with the other devices AcceptThread.
      **/
@@ -229,7 +227,7 @@ public class BluetoothConnectionService {
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            //dismiss the progressdialog when connection is established
+            //dismiss the progress dialog when connection is established
             try{
                 mProgressDialog.dismiss();
             }catch (NullPointerException e){
@@ -253,6 +251,9 @@ public class BluetoothConnectionService {
 
             int bytes; // bytes returned from read()
 
+
+
+
             // Keep listening to the InputStream until an exception occurs
             while (true) {
                 // Read from the InputStream
@@ -260,6 +261,19 @@ public class BluetoothConnectionService {
                     bytes = mmInStream.read(buffer);
                     String incomingMessage = new String(buffer, 0, bytes);
                     Log.d(TAG, "InputStream: " + incomingMessage);
+
+
+                    Log.d(TAG, "je suis la pour recevoir des messages ");
+
+
+                    Intent incomingMessageIntent = new Intent("incomingMessage");
+                    incomingMessageIntent.putExtra("theMessage", incomingMessage);
+                    LocalBroadcastManager.getInstance(mContext).sendBroadcast(incomingMessageIntent);
+
+
+                    Log.d(TAG, "je suis cense avoir affiché des messages");
+
+
                 } catch (IOException e) {
                     Log.e(TAG, "write: Error reading Input Stream. " + e.getMessage() );
                     break;
@@ -311,8 +325,5 @@ public class BluetoothConnectionService {
     }
 
 }
-
-
-
 
 

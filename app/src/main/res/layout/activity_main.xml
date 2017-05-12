@@ -49,4 +49,19 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Start" />
+
+    <TextView
+        android:id="@+id/incomingMessages"
+        android:layout_width="123dp"
+        android:layout_height="59dp"
+        android:text="incomingMessages"
+        app:layout_constraintBottom_toTopOf="@+id/listNewDevice"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Start"
+        tools:layout_editor_absoluteX="11dp"
+        app:layout_constraintVertical_bias="0.505" />
+
+
 </android.support.constraint.ConstraintLayout>

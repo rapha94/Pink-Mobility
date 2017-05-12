@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     String deviceName ;
     String deviceAddress;
+
+    TextView incomingMessages;
+    StringBuilder messages;
 
 
 
@@ -170,6 +175,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     };
 
 
+    BroadcastReceiver mReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String text = intent.getStringExtra("theMessage");
+            messages.append(text + "\n");
+
+            incomingMessages.setText(messages);
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -207,6 +223,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
 
+        incomingMessages = (TextView) findViewById(R.id.incomingMessages);
+        messages = new StringBuilder();
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
+
     }
 
 
@@ -227,6 +247,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         unregisterReceiver(mBroadcastReceiver2);
         unregisterReceiver(mBroadcastReceiver3);
         unregisterReceiver(mBroadcastReceiver4);
+        unregisterReceiver(mReceiver);
+
         //mBluetoothAdapter.cancelDiscovery();
     }
 
