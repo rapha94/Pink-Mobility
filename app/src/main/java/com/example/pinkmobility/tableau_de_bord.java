@@ -201,7 +201,10 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+                                                incomingMessages.setText("");
+                                                setVitesseBar(0);
 
+                                                Log.d(TAG, "avt creation de la DB");
 
                                                 myDB = new DataBase(getBaseContext());
 
@@ -209,17 +212,20 @@ public class tableau_de_bord extends AppCompatActivity {
 
 
                                                 //pour le moment on a des int qu'on transforme donc en string pour les ajouter a la database
-                                               // i = String.valueOf(speed);
 
-                                               // i = String.valueOf(mReceiver);
 
                                                 j = String.valueOf(counter);
 
-                                                k = String.valueOf(mReceiver);
+
+                                                Log.d(TAG, "avt le booleen");
 
                                                 // modifier le isInserted en fonction des variables que l'on recoit
-                                                boolean isInserted = myDB.insertData(j.getClass().toString(), i.getClass().toString());
-                                                if (isInserted){
+                                                boolean isInserted = myDB.insertData(j.getClass().toString(), messages);
+
+                                                Log.d(TAG, "apres le booleen");
+
+
+                                                if (isInserted = true ){
                                                     Toast.makeText(tableau_de_bord.this, "data Inserted", Toast.LENGTH_LONG).show();
                                                     Log.d(TAG, "les donnees sont dans la base");
 
@@ -239,6 +245,8 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+                                                incomingMessages.setText("");
+                                                progressBar.setProgress(0);
                                                 Toast.makeText(tableau_de_bord.this, "New trip", Toast.LENGTH_LONG).show();
 
                                             }
