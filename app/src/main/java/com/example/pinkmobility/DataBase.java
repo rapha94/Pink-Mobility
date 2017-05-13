@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.LoginFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,6 +16,8 @@ import static com.example.pinkmobility.tableau_de_bord.myDB;
  */
 
 public class DataBase extends SQLiteOpenHelper {
+
+    private static String TAG = "DataBase";
 
 
     public static final String DATABASE_NAME = "trip.db";
@@ -31,18 +35,25 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" create table " +TABLE_NAME+"(ID INTEGER PRIMARY KEY AUTOINCREMENT, TIME INTEGER, SPEED INTEGER);");
 
+        Log.d(TAG, "fonction onCreate de dataBase ==> DB créée");
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS" + TABLE_NAME);
         onCreate(db);
+        Log.d(TAG, "fonction onUpgrade de dataBase");
 
     }
 
 
     // modifier le insertData en fonction du type de variable que l'on recoit
     public boolean insertData (String time, String speed){
+
+        Log.d(TAG, "fonction insert data de dataBase");
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, time);

@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         LVNewDevice = (ListView) findViewById(R.id.listNewDevice) ;
         mBTDevices = new ArrayList<>();
 
+
         //Broadcasts when bond state changes (ie:pairing)
         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
         registerReceiver(mBroadcastReceiver4, filter);

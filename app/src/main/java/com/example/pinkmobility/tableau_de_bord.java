@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.nfc.Tag;
 import android.os.CountDownTimer;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,14 +27,14 @@ public class tableau_de_bord extends AppCompatActivity {
 
     private static final int REQUEST_CODE_ENABLE_BLUETOOTH = 0;
     private  ProgressBar progressBar;
-    private  TextView vitesseDigitale;
+    //private  TextView vitesseDigitale;
     private  ImageButton raz;
     private  ImageButton off;
     private ImageButton b_viewTrips;
     private  TextView temps;
 
     TextView incomingMessages;
-    StringBuilder messages;
+    String messages;
 
 
 
@@ -43,20 +45,29 @@ public class tableau_de_bord extends AppCompatActivity {
     private long tps_total = 7000000;
     private CountDownTimer countDownTimer;
 
-    int speed = 33;
+    //int speed = 33;
     String i;
     String j;
+    String k;
 
 
     BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+
+
             String text = intent.getStringExtra("theMessage");
-            messages.append(text + "\n");
+            messages = text ;
+
+            setVitesseBar(speedVariation(messages));
+            //setVitesseDigitale(messages);
 
             incomingMessages.setText(messages);
         }
     };
+
+    private static String TAG = "tableau_de_bord";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,18 +76,11 @@ public class tableau_de_bord extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tableau_de_bord);
-        setVitesseBar();
-        //setProgressValue(speed);
-        setVitesseDigitale();
         raz();
         quitter();
         decompte_temps();
         viewTrips();
-
-
-        incomingMessages = (TextView) findViewById(R.id.incomingMessages);
-        messages = new StringBuilder();
-        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
+        recevoirDonnees();
 
 
     }
@@ -133,11 +137,21 @@ public class tableau_de_bord extends AppCompatActivity {
         thread.start();
     }*/
 
+    private int speedVariation( String sSpeed){
+
+        int speed = 0 ;
+
+        speed = Integer.parseInt(sSpeed);
+
+        return speed ;
+
+    }
 
 
-    private void setVitesseBar(){
+
+    private void setVitesseBar(int speed){
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
 
         if (speed<100)
         {
@@ -145,19 +159,25 @@ public class tableau_de_bord extends AppCompatActivity {
         progressBar.setProgress(speed);
         }
         else
-        {
+       {
             finish();}
 
 
 
     }
 
-
-    private void setVitesseDigitale() {
+/*
+    private void setVitesseDigitale( String sSpeed) {
         vitesseDigitale = (TextView) findViewById(R.id.vitesseDigitale);
-        vitesseDigitale.setText(String.valueOf(speed));
-    }
+        vitesseDigitale.setText(sSpeed);
 
+
+
+        // vitesseDigitale.setText(String.valueOf(mReceiver));
+
+
+    }
+*/
 
     private void raz() {
         raz = (ImageButton) findViewById(R.id.raz);
@@ -181,21 +201,32 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+
+
                                                 myDB = new DataBase(getBaseContext());
+
+                                                Log.d(TAG, "je suis cense avoir créé la DB");
 
 
                                                 //pour le moment on a des int qu'on transforme donc en string pour les ajouter a la database
-                                                i = String.valueOf(speed);
+                                               // i = String.valueOf(speed);
+
+                                               // i = String.valueOf(mReceiver);
+
                                                 j = String.valueOf(counter);
 
+                                                k = String.valueOf(mReceiver);
+
                                                 // modifier le isInserted en fonction des variables que l'on recoit
-                                                boolean isInserted = myDB.insertData(j.getClass().toString(),
-                                                        i.getClass().toString());
-                                                if (isInserted = true){
+                                                boolean isInserted = myDB.insertData(j.getClass().toString(), i.getClass().toString());
+                                                if (isInserted){
                                                     Toast.makeText(tableau_de_bord.this, "data Inserted", Toast.LENGTH_LONG).show();
+                                                    Log.d(TAG, "les donnees sont dans la base");
+
                                                 }
                                                 else {
                                                     Toast.makeText(tableau_de_bord.this, "data not Inserted", Toast.LENGTH_LONG).show();
+                                                    Log.d(TAG, "les donnees ne sont pas dans la base");
 
                                                 }
 
@@ -294,8 +325,14 @@ public class tableau_de_bord extends AppCompatActivity {
                 alert.show();
             }
         });
+    }
 
 
+    public void recevoirDonnees(){
+
+        incomingMessages = (TextView) findViewById(R.id.incomingMessages);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
 
     }
 }
