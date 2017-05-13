@@ -4,6 +4,14 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher_round.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-hdpi/arnaud.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-hdpi/arnaud.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-hdpi/arnaud.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-hdpi/arnaud.png"
     },
@@ -12,11 +20,23 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-hdpi/pink_mobility.png"
     },
     {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-hdpi/pink_mobility.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-hdpi/pink_mobility.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-hdpi/icone_app.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-hdpi/icone_app.png"
+    },
+    {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-hdpi/icone_app.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-hdpi/icone_app.png"
     }
 ]

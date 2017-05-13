@@ -12,11 +12,25 @@ import java.util.List;
 
 public class tripsVisualisation extends AppCompatActivity {
 
+    ListView liste;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trips_visualisation);
 
+        liste = (ListView) findViewById(R.id.listeTrip);
+
+        displayListTrip();
+
+    }
+
+    private void displayListTrip(){
+
+        List<Trip> arrayList = TripList.getInstance().getListTrip();
+
+        ListView lv = (ListView) findViewById(R.id.listeTrip);
+
+        lv.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList));
     }
 }

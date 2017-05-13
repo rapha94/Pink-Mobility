@@ -8,6 +8,10 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/icone_app.png"
     },
     {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/pink_mobility.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-xxxhdpi/pink_mobility.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/arnaud.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/arnaud.png"
     },
@@ -16,7 +20,23 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher_round.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/pink_mobility.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-xxxhdpi/pink_mobility.png"
+    },
+    {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/icone_app.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-xxxhdpi/icone_app.png"
+    },
+    {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/arnaud.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-xxxhdpi/arnaud.png"
+    },
+    {
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi/ic_launcher.png",
+        "source": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     }
 ]

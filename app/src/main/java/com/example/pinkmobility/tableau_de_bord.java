@@ -206,7 +206,8 @@ public class tableau_de_bord extends AppCompatActivity {
 
                                                 Log.d(TAG, "avt creation de la DB");
 
-                                                myDB = new DataBase(getBaseContext());
+                                                TripList.getInstance();
+                                                Trip newTrip = new Trip(counter, speedVariation(messages));
 
                                                 Log.d(TAG, "je suis cense avoir créé la DB");
 
@@ -214,18 +215,19 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 //pour le moment on a des int qu'on transforme donc en string pour les ajouter a la database
 
 
-                                                j = String.valueOf(counter);
+                                                //j = String.valueOf(counter);
 
 
                                                 Log.d(TAG, "avt le booleen");
 
                                                 // modifier le isInserted en fonction des variables que l'on recoit
-                                                boolean isInserted = myDB.insertData(j.getClass().toString(), messages);
+
+                                                boolean isInserted = TripList.getInstance().addTrip(newTrip);
 
                                                 Log.d(TAG, "apres le booleen");
 
 
-                                                if (isInserted = true ){
+                                                if (isInserted){
                                                     Toast.makeText(tableau_de_bord.this, "data Inserted", Toast.LENGTH_LONG).show();
                                                     Log.d(TAG, "les donnees sont dans la base");
 

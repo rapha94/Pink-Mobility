@@ -3,129 +3,111 @@
 
     <item
         is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/64025b13ccadc9e165650b2ff17976a0b7bc2426/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_5bdf3ab454f730f32bbab9cb7a03fd52c25f1e68.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_504455f8c420f6434ea97ed1910c1682265f5bdd/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/221320896a57cc7e622501e1019df9bf8d2ed88b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_e946d7a299ac34719137dc0dfb234a98b89bcb2d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/fdb17d6355594547061bc9f8b30e24bd26ee1c65/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="518768f3200963fbfec652f498da2c9d39245234">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_554cc1d4f742a93f6e0ba881d1c0631864c1b841.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.0/support-annotations-25.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.0_a9c6a65e4d382eaf8146ec043e5d14c6e2e0bd27.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/5d43c9f96d13216ac3948223ed65281c157edc60/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_841d339d297a8c64ef905c9641aa4a4dc5af1c2b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/f5abf80e7cc3ad07d4236e191a0083921214ac0b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_c8b88183b683c4fd96cb6c09a77830329d55cb99.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_653cba04cc0f56d4f10518db0e47aebb03a61956.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="18ec27e77c0c14b69720106fda76784a25a05ec3">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_7629c5f6fe0b7256b3a243534b972a01471ab692/classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/4b4387491b255f9273e462856804b389726b05d2/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_120a7c7deab4feca7d02859ad489454063971083.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/afe265f9cd103cc3dfc531402b0710140383d06a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_12674928af543dbde14323398716c63bc3d212b6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_218f4c0a838076f5c3169bf63ac53a4ffd692644.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/7fb6ed9d1f7a93d68e283e9f18bd739fe0cd71c0/output/jars/classes.jar"
+        jar="/Users/arny/.android/build-cache/3b76ce028727743529f905b9dda6f48894f649a0/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_51d8f117c4d9964990e6a65628dc705e5826061e.jar" />
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_6381fc1634e18d38c508e5255b0e64fdd190e264.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/raphaelpresberg/.android/build-cache/d08422474292075e435ddda02cdc5747d8d4199a/output/jars/classes.jar"
+        jar="/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_b16f6167d0fdf01c0e218122029dbeaea9ccdd12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/45e9beffe00d3ff7c4f5e21f84cbeda153a877fa/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_29c452610b01fc0da9518ef2265831f241e2ddf3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/47bd38c65a66fa5ab0094c38a841abee7bc7f3f8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_192fd24ded2919ba76b50de396ddbd5b89bc6b2c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/5e095ca030f2f71960f836952d547ec59f19c564/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_5a6d3ebf3a1ad5d967f4a13fe9f52c952227d5c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/8c4cbbd93cced47ec38a45dd1bc4e9cd60454c2c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_ea0109e18e25420c77281cfcd9f394e2f3f36ea8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/cd047eccede23a2817fae9f26bb51eb804b4f185/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
-        <dex dex="/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/pre-dexed/debug/classes_db858b94f10083cd858eee643afb036287b560f4.jar" />
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_2e36f8633ebf8674cf0e86fe250f42553214b127.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/3978bdab16bece7813519d831a824f8886f18514/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_656dc2b5dd89469e09feb07ac3d59f228fb3ee20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.0/support-annotations-25.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.0_67ad333e505b6679c36f5db266579f66e085231e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/f25c0e1c9abb9a733b881b77faf20e481d1a52d4/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_5bbc9fde81bc679d3b5874d4694f10a98af875f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_c83723d368e7c219b8d8d1d8a14f132f6ed94c7f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/arny/.android/build-cache/3d250fc687656cea732ee5f52972ed4605c3549e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/pre-dexed/debug/classes_2cfffdfbbaff8ee6356ecb179d3db42c720c3bf2.jar" />
     </item>
 
 </items>
