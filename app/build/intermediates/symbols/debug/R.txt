@@ -753,6 +753,7 @@ int mipmap arnaud 0x7f030000
 int mipmap ic_launcher 0x7f030001
 int mipmap ic_launcher_round 0x7f030002
 int mipmap icone_app 0x7f030003
+int mipmap pink_mobility 0x7f030004
 int string _0 0x7f060015
 int string _100 0x7f060016
 int string abc_action_bar_home_description 0x7f060000

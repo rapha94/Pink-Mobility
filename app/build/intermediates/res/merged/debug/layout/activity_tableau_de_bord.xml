@@ -127,14 +127,17 @@
 
     <TextView
         android:id="@+id/incomingMessages"
-        android:layout_width="314dp"
-        android:layout_height="165dp"
+        android:layout_width="318dp"
+        android:layout_height="101dp"
         android:text="@string/incomingmessages"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/off"
-        app:layout_constraintTop_toBottomOf="@+id/Temps"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Temps"
+        app:layout_constraintVertical_bias="0.161" />
 
 </android.support.constraint.ConstraintLayout>

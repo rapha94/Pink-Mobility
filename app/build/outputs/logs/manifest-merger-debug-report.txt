@@ -54,7 +54,7 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/raph
 	android:allowBackup
 		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:12:9-35
 	android:icon
-		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:13:9-38
+		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:13:9-45
 	android:theme
 		ADDED from /Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/AndroidManifest.xml:17:9-40
 activity#com.example.pinkmobility.MainActivity

@@ -14,5 +14,9 @@
     {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-mdpi/arnaud.png",
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-mdpi/arnaud.png"
+    },
+    {
+        "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/mipmap-mdpi/pink_mobility.png",
+        "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/mipmap-mdpi/pink_mobility.png"
     }
 ]

@@ -1,4 +1,4 @@
-#Fri May 12 17:33:09 CEST 2017
+#Sat May 13 09:58:32 CEST 2017
 base.0=/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
