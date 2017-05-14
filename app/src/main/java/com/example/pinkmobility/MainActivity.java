@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public static Button b_entrer;
     public static Button b_jumeler;
+    public static ImageButton b_viewTrip;
     BluetoothAdapter m_bluetoothAdapter;
     private static String TAG = "MainActivity";
 
@@ -184,6 +186,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         b_entrer = (Button) findViewById(R.id.Start);
         boutonDesactive();
         b_jumeler = (Button) findViewById(R.id.b_jumeler);
+
+        b_viewTrip = (ImageButton) findViewById(R.id.viewTrips_activity1);
+        voirTrips();
 
 
         m_bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -444,6 +449,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         mBTDevice = mBTDevices.get(i);
         mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
+
+    }
+
+    public void voirTrips(){
+
+        b_viewTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent("com.example.pinkmobility.tripsVisualisation");
+                startActivity(intent);
+
+            }
+        });
+
+
 
     }
 
