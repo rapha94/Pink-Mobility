@@ -2345,8 +2345,8 @@ containing a value of this type.
         public static final int line3=0x7f0b0080;
         public static final int listMode=0x7f0b0012;
         public static final int listNewDevice=0x7f0b005f;
+        public static final int listTrip=0x7f0b0069;
         public static final int list_item=0x7f0b0033;
-        public static final int listeTrip=0x7f0b0069;
         public static final int media_actions=0x7f0b0072;
         public static final int middle=0x7f0b0024;
         public static final int multiply=0x7f0b001c;

@@ -202,7 +202,6 @@ public class tableau_de_bord extends AppCompatActivity {
                                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                counter = 0;
                                                 incomingMessages.setText("");
                                                 setVitesseBar(0);
 
@@ -211,7 +210,7 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 TripList.getInstance();
 
 
-                                                Trip newTrip = new Trip(idTrip , counter, speedVariation(messages));
+                                                Trip newTrip = new Trip(counter, speedVariation(messages), idTrip);
 
                                                 idTrip++;
 
@@ -225,6 +224,9 @@ public class tableau_de_bord extends AppCompatActivity {
 
 
                                                 Log.d(TAG, "avt le booleen");
+
+                                                counter = 0;
+
 
                                                 // modifier le isInserted en fonction des variables que l'on recoit
 
