@@ -24,6 +24,30 @@
         ]
     },
     {
+        "outputFile": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "/Users/arny/.android/build-cache/a072cbcd31ce7405647dba739ebd5bc33fff36cb/output/res/values/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
         "map": [
             {

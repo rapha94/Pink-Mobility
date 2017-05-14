@@ -45,6 +45,8 @@ public class tableau_de_bord extends AppCompatActivity {
     private long tps_total = 7000000;
     private CountDownTimer countDownTimer;
 
+    private int idTrip = 1 ;
+
     //int speed = 33;
     String i;
     String j;
@@ -207,7 +209,11 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 Log.d(TAG, "avt creation de la DB");
 
                                                 TripList.getInstance();
-                                                Trip newTrip = new Trip(counter, speedVariation(messages));
+
+
+                                                Trip newTrip = new Trip(idTrip , counter, speedVariation(messages));
+
+                                                idTrip++;
 
                                                 Log.d(TAG, "je suis cense avoir créé la DB");
 

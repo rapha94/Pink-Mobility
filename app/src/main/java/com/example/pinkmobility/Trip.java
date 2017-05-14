@@ -11,18 +11,21 @@ public class Trip {
 
     private int time ;
     private int speed ;
+    private int id ;
 
     public Trip (){
 
         this.speed = 0 ;
         this.time = 0 ;
+        this.id = 0 ;
     }
 
 
-    public Trip( int time , int speed){
+    public Trip( int time , int speed , int id){
 
         this.speed = speed ;
         this.time = time ;
+        this.id = id;
     }
 
     public int getTime(){
@@ -45,5 +48,9 @@ public class Trip {
         this.speed = speed ;
     }
 
+    @Override
+    public String toString() {
+        return "Trip " + this.id + ". " + this.speed + " Kms/h - " + this.time + " s";
+    }
 
 }

@@ -8,6 +8,14 @@
         "source": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/src/main/res/layout-v21/activity_main.xml"
     },
     {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
         "source": "/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/res/layout-v21/notification_template_custom_big.xml"
     },
@@ -18,6 +26,10 @@
     {
         "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/layout-v21/notification_action.xml"
     },
     {
         "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
@@ -38,5 +50,13 @@
     {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
         "source": "/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/layout-v21/activity_main.xml",
+        "source": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/src/main/res/layout-v21/activity_main.xml"
     }
 ]
