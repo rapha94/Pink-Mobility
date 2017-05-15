@@ -51,6 +51,7 @@ public class tableau_de_bord extends AppCompatActivity {
     private CountDownTimer countDownTimer;
 
     private int idTrip = 1 ;
+    private int speedMax = 0 ;
 
     //int speed = 33;
     String i;
@@ -66,8 +67,17 @@ public class tableau_de_bord extends AppCompatActivity {
             String text = intent.getStringExtra("theMessage");
             messages = text ;
 
+
+
+            if (speedVariation(messages) > speedMax){
+
+                speedMax = speedVariation(messages);
+                vitesseMaximum(speedMax);
+
+            }
+
             setVitesseBar(speedVariation(messages));
-            //setVitesseDigitale(messages);
+
 
             incomingMessages.setText(messages);
         }
@@ -89,9 +99,10 @@ public class tableau_de_bord extends AppCompatActivity {
         viewTrips();
         recevoirDonnees();
         distanceParcourue();
-        vitesseMaximum();
+        vitesseMaximum(0);
         vitesseMoyenne();
         niveauBatterie();
+
 
 
     }
@@ -193,7 +204,13 @@ public class tableau_de_bord extends AppCompatActivity {
 
     }
 
-    private void vitesseMaximum(){
+    private void vitesseMaximum( int speedMax ){
+
+        String speedMaximum = String.valueOf(speedMax);
+
+        v_Max = (TextView) findViewById(R.id.vitesseMax);
+
+        v_Max.setText(speedMaximum);
         
     }
 
@@ -244,7 +261,9 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 TripList.getInstance();
 
 
-                                                Trip newTrip = new Trip(counter, speedVariation(messages), idTrip);
+
+
+                                                Trip newTrip = new Trip(counter, speedVariation(messages), idTrip, speedMax);
 
                                                 idTrip++;
 
@@ -260,6 +279,8 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 Log.d(TAG, "avt le booleen");
 
                                                 counter = 0;
+                                                v_Max.setText("0");
+                                                speedMax = 0 ;
 
 
                                                 // modifier le isInserted en fonction des variables que l'on recoit
@@ -289,6 +310,8 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
+                                                v_Max.setText("0");
+                                                speedMax = 0 ;
                                                 incomingMessages.setText("");
                                                 progressBar.setProgress(0);
                                                 Toast.makeText(tableau_de_bord.this, "New trip", Toast.LENGTH_LONG).show();

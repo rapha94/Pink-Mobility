@@ -40,12 +40,12 @@
         "source": "/Users/raphaelpresberg/.android/build-cache/82440f8c3cc28308f8ed1cf37f36e4f4aa033567/output/res/color/switch_thumb_material_light.xml"
     },
     {
-        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
-        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/color/abc_hint_foreground_material_light.xml"
-    },
-    {
         "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_light.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/color/abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/merged/debug/color/abc_background_cache_hint_selector_material_light.xml",

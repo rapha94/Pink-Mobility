@@ -12,7 +12,7 @@
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/notification_tile_bg.xml"
     },
     {
@@ -20,7 +20,7 @@
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/notification_tile_bg.xml"
     },
     {
@@ -76,12 +76,12 @@
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_textfield_search_material.xml"
     },
     {
-        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_switch_thumb_material.xml"
-    },
-    {
         "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
         "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "/Users/arny/Desktop/ESME/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
+        "source": "/Users/arny/.android/build-cache/287c68da40983282f5abf9f0db11d40d3f0cd932/output/res/drawable/abc_switch_thumb_material.xml"
     },
     {
         "merged": "/Users/arny/Desktop/Pink Mobility/Pink-Mobility/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
