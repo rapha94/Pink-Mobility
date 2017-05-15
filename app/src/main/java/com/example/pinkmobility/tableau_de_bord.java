@@ -32,6 +32,11 @@ public class tableau_de_bord extends AppCompatActivity {
     private  ImageButton off;
     private ImageButton b_viewTrips;
     private  TextView temps;
+    private TextView d_Parcourue;
+    private TextView v_Max;
+    private TextView v_Moy;
+
+    private ProgressBar batterie;
 
     TextView incomingMessages;
     String messages;
@@ -83,6 +88,10 @@ public class tableau_de_bord extends AppCompatActivity {
         decompte_temps();
         viewTrips();
         recevoirDonnees();
+        distanceParcourue();
+        vitesseMaximum();
+        vitesseMoyenne();
+        niveauBatterie();
 
 
     }
@@ -165,7 +174,31 @@ public class tableau_de_bord extends AppCompatActivity {
             finish();}
 
 
+    }
 
+
+
+    private void niveauBatterie (){
+
+        batterie = (ProgressBar) findViewById(R.id.niveauBatterie);
+
+    }
+
+    private void vitesseMoyenne(){
+
+        v_Moy = (TextView) findViewById(R.id.vitesseMoyenne);
+
+    }
+
+    private void vitesseMaximum(){
+
+        v_Max = (TextView) findViewById(R.id.vitesseMax);
+
+    }
+
+    private void distanceParcourue(){
+
+        d_Parcourue = (TextView) findViewById(R.id.distanceParcourue);
     }
 
 /*

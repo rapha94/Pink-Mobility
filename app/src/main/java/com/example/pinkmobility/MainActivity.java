@@ -187,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         boutonDesactive();
         b_jumeler = (Button) findViewById(R.id.b_jumeler);
 
-        b_viewTrip = (ImageButton) findViewById(R.id.viewTrips_activity1);
         voirTrips();
 
 
@@ -452,12 +451,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+
+    //méthode appelée dans le onCreate
     public void voirTrips(){
 
+        //bouton de type imageButton enregistrée dans le fichier R
+        b_viewTrip = (ImageButton) findViewById(R.id.viewTrips_activity1);
+
+        //methode setOnClickListener de la classe view.java permettant de cliquer sur le bouton défini ci-dessus
         b_viewTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
+                //création du nouveau intent avec le nom de la page sur laquelle nous désirons aller
                 Intent intent = new Intent("com.example.pinkmobility.tripsVisualisation");
                 startActivity(intent);
 
