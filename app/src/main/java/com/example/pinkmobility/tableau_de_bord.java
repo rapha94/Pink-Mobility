@@ -210,7 +210,7 @@ public class tableau_de_bord extends AppCompatActivity {
 
         v_Max = (TextView) findViewById(R.id.vitesseMax);
 
-        v_Max.setText(speedMaximum);
+        v_Max.setText("vitesse maximum: " + speedMaximum);
         
     }
 
@@ -279,7 +279,7 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 Log.d(TAG, "avt le booleen");
 
                                                 counter = 0;
-                                                v_Max.setText("0");
+                                                v_Max.setText("vitesse maximum: 0");
                                                 speedMax = 0 ;
 
 
@@ -310,7 +310,7 @@ public class tableau_de_bord extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 counter = 0;
-                                                v_Max.setText("0");
+                                                v_Max.setText("vitesse maximum: 0");
                                                 speedMax = 0 ;
                                                 incomingMessages.setText("");
                                                 progressBar.setProgress(0);

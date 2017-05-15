@@ -130,39 +130,44 @@
 
     <TextView
         android:id="@+id/vitesseMoyenne"
-        android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="16dp"
-        android:text="Vitesse Moyenne: "
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="16dp"
+        android:text="Vitesse Moyenne: "
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/off"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitesseMax" />
 
     <TextView
         android:id="@+id/vitesseMax"
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="16dp"
-        android:text="Vitesse Max: "
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginStart="16dp"
+        android:text="Vitesse Max: "
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/vitesseMoyenne"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/distanceParcourue" />
 
     <TextView
         android:id="@+id/distanceParcourue"
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="16dp"
-        android:text="Distance Parcourue: "
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/vitesseMax"
+        android:layout_width="250dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="-13dp"
         android:layout_marginStart="16dp"
+        android:text="Distance Parcourue: "
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/vitesseMax"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Temps" />
 
     <ProgressBar
