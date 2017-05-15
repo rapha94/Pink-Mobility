@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon May 15 10:10:02 CEST 2017
+#Mon May 15 12:31:13 CEST 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/Users/raphaelpresberg/AndroidStudioProjects/PinkMobility2/app/build/intermediates/res/resources-debug.ap_/res/drawable/abc_list_selector_background_transition_holo_light.xml

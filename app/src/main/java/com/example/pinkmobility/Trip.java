@@ -50,7 +50,8 @@ public class Trip {
 
     @Override
     public String toString() {
-        return "Trip " + this.id + ". " + this.speed + " Kms/h - " + this.time + " s";
+        return "Trip " + this.id + ". " + this.speed + " Kms/h " + "\n" + this.time%3600 + " min" + this.time%3600%60 + "s";
+
     }
 
 }

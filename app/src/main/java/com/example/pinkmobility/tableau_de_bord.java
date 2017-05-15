@@ -47,7 +47,7 @@ public class tableau_de_bord extends AppCompatActivity {
 
     public int counter;
 
-    private long tps_total = 7000000;
+    private long tps_total = 90000000;
     private CountDownTimer countDownTimer;
 
     private int idTrip = 1 ;
@@ -156,6 +156,7 @@ public class tableau_de_bord extends AppCompatActivity {
 
         return speed ;
 
+
     }
 
 
@@ -174,6 +175,7 @@ public class tableau_de_bord extends AppCompatActivity {
             finish();}
 
 
+
     }
 
 
@@ -188,12 +190,11 @@ public class tableau_de_bord extends AppCompatActivity {
 
         v_Moy = (TextView) findViewById(R.id.vitesseMoyenne);
 
+
     }
 
     private void vitesseMaximum(){
-
-        v_Max = (TextView) findViewById(R.id.vitesseMax);
-
+        
     }
 
     private void distanceParcourue(){
