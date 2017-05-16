@@ -1,8 +1,5 @@
 package com.example.pinkmobility;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by arny on 13/05/2017.
  */

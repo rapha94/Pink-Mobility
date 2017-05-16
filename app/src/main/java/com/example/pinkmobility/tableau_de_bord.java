@@ -1,22 +1,18 @@
 package com.example.pinkmobility;
 
-import android.bluetooth.BluetoothAdapter;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.nfc.Tag;
 import android.os.CountDownTimer;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,9 +21,8 @@ import android.widget.Toast;
 
 public class tableau_de_bord extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_ENABLE_BLUETOOTH = 0;
+
     private  ProgressBar progressBar;
-    //private  TextView vitesseDigitale;
     private  ImageButton raz;
     private  ImageButton off;
     private ImageButton b_viewTrips;
@@ -35,28 +30,19 @@ public class tableau_de_bord extends AppCompatActivity {
     private TextView d_Parcourue;
     private TextView v_Max;
     private TextView v_Moy;
-
     private ProgressBar batterie;
 
-    TextView incomingMessages;
-    String messages;
-
-
-
+    public TextView incomingMessages;
+    public String messages;
     public static DataBase myDB;
-
     public int counter;
 
     private long tps_total = 90000000;
     private CountDownTimer countDownTimer;
 
-    private int idTrip = 1 ;
+    public static int idTrip = 1 ;
     private int speedMax = 0 ;
 
-    //int speed = 33;
-    String i;
-    String j;
-    String k;
 
 
     BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -141,24 +127,6 @@ public class tableau_de_bord extends AppCompatActivity {
 
 
 
-    /*
-    private void setProgressValue(int speed) {
-        progressBar.setProgress(speed);
-        Thread thread = new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(50);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                setProgressValue(speed + 5);
-            }
-        });
-        thread.start();
-    }*/
-
     private int speedVariation( String sSpeed){
 
         int speed = 0 ;
@@ -219,18 +187,6 @@ public class tableau_de_bord extends AppCompatActivity {
         d_Parcourue = (TextView) findViewById(R.id.distanceParcourue);
     }
 
-/*
-    private void setVitesseDigitale( String sSpeed) {
-        vitesseDigitale = (TextView) findViewById(R.id.vitesseDigitale);
-        vitesseDigitale.setText(sSpeed);
-
-
-
-        // vitesseDigitale.setText(String.valueOf(mReceiver));
-
-
-    }
-*/
 
     private void raz() {
         raz = (ImageButton) findViewById(R.id.raz);
@@ -260,20 +216,11 @@ public class tableau_de_bord extends AppCompatActivity {
 
                                                 TripList.getInstance();
 
-
-
-
                                                 Trip newTrip = new Trip(counter, speedVariation(messages), idTrip, speedMax);
 
                                                 idTrip++;
 
                                                 Log.d(TAG, "je suis cense avoir créé la DB");
-
-
-                                                //pour le moment on a des int qu'on transforme donc en string pour les ajouter a la database
-
-
-                                                //j = String.valueOf(counter);
 
 
                                                 Log.d(TAG, "avt le booleen");
@@ -282,8 +229,6 @@ public class tableau_de_bord extends AppCompatActivity {
                                                 v_Max.setText("vitesse maximum: 0");
                                                 speedMax = 0 ;
 
-
-                                                // modifier le isInserted en fonction des variables que l'on recoit
 
                                                 boolean isInserted = TripList.getInstance().addTrip(newTrip);
 
@@ -410,6 +355,9 @@ public class tableau_de_bord extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter("incomingMessage"));
 
     }
+
+
+
 }
 
 
